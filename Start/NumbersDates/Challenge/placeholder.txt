@@ -1,1 +1,31 @@
 Use this folder to implement your solution to the challenge
+
+// C# code​​​​​​‌‌​‌‌​​​‌‌​‌​‌​​‌‌​​​​​‌‌ below
+using System;
+
+// Write your answer here, and then test your code.
+
+public class Answer {
+
+    // Change these Boolean values to control whether you see 
+    // the expected result and/or hints.
+    public  static Boolean ShowExpectedResult = false;
+    public  static Boolean ShowHints = false;
+
+    public static int CalcHowManyDays(string date_str) {
+        // Your code goes here.
+
+        DateTime parsedDate;
+        DateTime today = DateTime.Now;
+        TimeSpan ts;
+        if(DateTime.TryParse(date_str, out parsedDate)){
+            ts = today - parsedDate;
+            return ts.Days;
+        }
+        else{
+           return int.MaxValue;
+            
+        }
+    }
+
+}

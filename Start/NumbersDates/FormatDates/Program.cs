@@ -1,37 +1,31 @@
 ﻿// LinkedIn Learning Course .NET Programming with C# by Joe Marini
 // Example file for formatting date information
-
+using System.Globalization;
+using System.Threading.Channels;
 // Define a date
 DateTime AprFools = new DateTime(2025, 4, 1, 13, 23, 30);
 
 // TODO: 'd' Short date: mm/dd/yyyy (or dd/mm depending on locale)
-DateTime now = DateTime.Now;
-Console.WriteLine(now);
+Console.WriteLine($"{AprFools:d}");
 
 // TODO: 'D' Full date: mm/dd/yyyy (or dd/mm depending on locale)
-DateTime today = DateTime.Today;
-Console.WriteLine(today);
+Console.WriteLine($"{AprFools:D}");
 
 // TODO: 'f' Full date, short time
-DateOnly dt = DateOnly.FromDateTime(DateTime.Now); //only the date part
-TimeOnly tm = TimeOnly.FromDateTime(DateTime.Now); //only the time part
-Console.WriteLine(dt);
-Console.WriteLine(tm);
+Console.WriteLine($"{AprFools:f}");
 
 // TODO: 'F' Full date, long time
-Console.WriteLine(today.DayOfWeek);
-Console.WriteLine(today.DayOfYear);
+Console.WriteLine($"{AprFools:F}");
 
 // TODO: 'g' General date and time
-now = now.AddDays(5);
-now = now.AddHours(9);
-now = now.AddMonths(1);
-Console.WriteLine(now);
+Console.WriteLine($"{AprFools:g}");
 
 // TODO: 'G' General date and time
-
+// Console.WriteLine($"{AprFools:G}");
 
 // TODO: Format using a specific CultureInfo
-
-
+Console.WriteLine(AprFools.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))); // German format
 // TODO: Defining custom date and time formats
+Console.WriteLine($"{AprFools:dddd, MMMM, d, yyyy}"); // e.g., "Tue, April, 1, 2025"
+Console.WriteLine($"{AprFools:MM/dd/yyyy}"); // e.g., "04/01/2025"
+Console.WriteLine($"{AprFools:yyyy-MM-dd}"); // e.g., "2025-04-01"
